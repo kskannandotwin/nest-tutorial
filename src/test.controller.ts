@@ -2,6 +2,10 @@
 import { Controller, Get } from '@nestjs/common';
 import { TestService } from './test.service';
 
+// controller say 'i have a dependency'
+// lookup into a ioc container
+// take dependency [service object]
+
 @Controller()
 export class TestController {
 
