@@ -1,17 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { PostController } from './post.controller';
+import { Module } from '@nestjs/common';
 import { PostService } from './post.service';
-import { LoggerMiddleware } from 'src/middleware/logger.middleware';
+import { PostController } from './post.controller';
 
 @Module({
-    imports: [],
-    controllers: [PostController],
     providers: [PostService],
-    exports: [PostModule],
+    controllers: [PostController]
 })
-export class PostModule implements NestModule {
-    configure(consumer: MiddlewareConsumer) {
-        consumer.apply(LoggerMiddleware).forRoutes('*');
-    }
-}
+export class PostModule { }
