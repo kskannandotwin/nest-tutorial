@@ -6,7 +6,7 @@ import { PostModule } from './post/post.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [PostModule, MongooseModule.forRoot('mongodb+srv://kskannanwin_db_user:eord1cn0vnpe05g0@postcluster.cpgqqvt.mongodb.net/?retryWrites=true&w=majority&appName=PostCluster')],
+  imports: [PostModule, MongooseModule.forRoot('mongodb+srv://kskannanwin_db_user:eord1cn0vnpe05g0@postcluster.cpgqqvt.mongodb.net/post_db?retryWrites=true&w=majority&appName=PostCluster')],
   controllers: [AppController],
   providers: [AppService],
 })
