@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Post } from '@nestjs/common';
 import { PostService } from './post.service';
-import * as postSchema from './schemas/post.schema';
+import { CreatePostDto } from './dtos/create-post.dto';
 
 @Controller('posts') // REST
 export class PostController {
     constructor(private readonly postService: PostService) { }
 
     @Post()
-    create(@Body() requestBody: postSchema.PostDocument) {
+    create(@Body() requestBody: CreatePostDto) {
         return this.postService.create(requestBody);
     }
 }
