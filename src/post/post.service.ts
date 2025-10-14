@@ -23,4 +23,17 @@ export class PostService {
 
         return postDto;
     }
+
+    async getAll(): Promise<ResponsePostDto[]> {
+        // const posts = await this.postModel.find().exec();
+        const posts = await this.postModel.find();
+
+        return posts.map((post) => {
+            return {
+                _id: post._id.toString(),
+                title: post.title,
+                description: post.description,
+            } as ResponsePostDto;
+        });
+    }
 }
