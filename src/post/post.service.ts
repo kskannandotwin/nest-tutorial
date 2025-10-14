@@ -13,7 +13,7 @@ export class PostService {
     async create(data: CreatePostDto): Promise<ResponsePostDto> {
         const createdPost = new this.postModel(data);
 
-        const post = await createdPost.save();
+        const post = await createdPost.save(); // real entity
 
         const postDto = new ResponsePostDto();
 
