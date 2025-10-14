@@ -1,9 +1,11 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
 import { PostService } from './post.service';
 import { CreatePostDto } from './dtos/create-post.dto';
+import { TransformInterceptor } from 'src/interceptors/transform-dto.interceptor';
 
 @Controller('posts') // REST
+@UseInterceptors(TransformInterceptor)
 export class PostController {
     constructor(private readonly postService: PostService) { }
 
